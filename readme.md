@@ -4,4 +4,6 @@
 1. React Native 설치하기  
 https://www.ddengle.com/board_blockchain/10206804  
 2. Navigation 만들기  
-https://www.ddengle.com/board_blockchain/10223649  
+https://www.ddengle.com/board_blockchain/10223649
+3. Navigation 완성하기
+https://www.ddengle.com/board_blockchain/10257432
