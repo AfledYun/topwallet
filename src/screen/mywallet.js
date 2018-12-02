@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, AsyncStorage } from 'react-native';
+import { NavigationEvents } from 'react-navigation';
 import ActionSheet from 'react-native-actionsheet'
 import { IconButton } from './icon-button';
 
@@ -15,6 +16,10 @@ class MyWalletScreen extends Component {
 
   componentWillMount() {
     this.props.navigation.setParams({showMenu: () => this.ActionSheet.show()});
+
+    this.setState({
+      addressList: []
+    })
   }
 
   render() {
@@ -35,8 +40,47 @@ class MyWalletScreen extends Component {
             else if(index == 1) this.props.navigation.navigate('ImportWallet');
           }}
         />
+        <NavigationEvents onDidFocus={() => this.refreshWallet()} />
+        {this.renderWalletList()}
       </View>
     );
+  }
+
+  refreshWallet() {
+    AsyncStorage.getAllKeys().then((keys, error) => {
+      let addressList = [];
+      for(const n in keys) {
+        const key = keys[n];
+        const strs = key.split(':');
+        if(strs[0] === 'Wallet') {
+          const address = strs[1];
+          addressList.push(address);
+        }
+      }
+
+      this.setState({
+        addressList: addressList
+      })
+    });
+  }
+
+  renderWalletList() {
+    const { addressList } = this.state;
+
+    if(addressList.length > 0) {
+      let addressUi = [];
+
+      for(const n in addressList) {
+        const address = addressList[n];
+        addressUi.push(
+          <Text>{address}</Text>
+        );
+      }
+
+      return addressUi;
+    }
+
+    return null;
   }
 }
 

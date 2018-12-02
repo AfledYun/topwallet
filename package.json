@@ -7,9 +7,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "ethers": "^3.0.29",
     "react": "16.6.1",
     "react-native": "0.57.5",
     "react-native-actionsheet": "^2.4.2",
+    "react-native-loading-spinner-overlay": "^1.0.1",
     "react-navigation": "^2.18.2"
   },
   "devDependencies": {
