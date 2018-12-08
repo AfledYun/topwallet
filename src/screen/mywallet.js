@@ -73,7 +73,7 @@ class MyWalletScreen extends Component {
       for(const n in addressList) {
         const address = addressList[n];
         addressUi.push(
-          <Text>{address}</Text>
+          <Text key={address}>{address}</Text>
         );
       }
 
