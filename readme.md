@@ -15,4 +15,6 @@ https://www.ddengle.com/board_blockchain/10300179
 5. React Native AsyncStorage  
 https://www.ddengle.com/board_blockchain/10329345  
 6. 니모닉 지갑 생성  
-https://www.ddengle.com/board_blockchain/10399375  
+https://www.ddengle.com/board_blockchain/10399375
+7. 지갑 불러오기  
+https://www.ddengle.com/board_blockchain/10469379  
